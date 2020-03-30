@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/GauthierLory/simple-markdown-blog#readme",
   "dependencies": {
+    "bcrypt": "^4.0.1",
     "dompurify": "^2.0.8",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
