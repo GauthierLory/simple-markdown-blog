@@ -20,7 +20,7 @@ router.get('/register', (req, res) => {
     res.render('register.ejs')
 })
 
-router.get('/test', (req, res) => {
+router.get('/test',isAuthenticated, (req, res) => {
     res.render('test.ejs', { name: req.user.name })
 })
 
