@@ -7,7 +7,7 @@ const User = require('../models/user.js')
 const {isAuthenticated} = require('../config/credential')
 
 router.get('/login',(req, res) => {
-    res.render('login.ejs')
+    res.render('auth/login.ejs')
 })
 
 router.post('/login',passport.authenticate('local', {
@@ -17,7 +17,7 @@ router.post('/login',passport.authenticate('local', {
 }))
 
 router.get('/register', (req, res) => {
-    res.render('register.ejs')
+    res.render('auth/register.ejs')
 })
 
 router.get('/test',isAuthenticated, (req, res) => {
