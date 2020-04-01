@@ -4,19 +4,19 @@ const express = require('express')
 const router = express.Router()
 
 const User = require('../models/user.js')
-const {isAuthenticated} = require('../config/credential')
+const {isAuthenticated, isNotAuthenticated} = require('../config/credential')
 
-router.get('/login',(req, res) => {
+router.get('/login',isNotAuthenticated ,(req, res) => {
     res.render('auth/login.ejs')
 })
 
-router.post('/login',passport.authenticate('local', {
+router.post('/login',isNotAuthenticated, passport.authenticate('local', {
     successRedirect: '/test',
     failureRedirect: '/login',
     failureFlash: true
 }))
 
-router.get('/register', (req, res) => {
+router.get('/register',isNotAuthenticated ,(req, res) => {
     res.render('auth/register.ejs')
 })
 
@@ -24,7 +24,12 @@ router.get('/test',isAuthenticated, (req, res) => {
     res.render('test.ejs', { name: req.user.name })
 })
 
-router.post('/register', async (req, res) =>{
+router.delete('/logout',(req, res) => {
+    req.logout()
+    res.redirect('/login')
+})
+
+router.post('/register',isNotAuthenticated ,async (req, res) =>{
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     let user = new User({
         name: req.body.name,
