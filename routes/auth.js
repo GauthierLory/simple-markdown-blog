@@ -1,19 +1,30 @@
-app.get('/login',async(req, res) => {
-    const users = await User.find()
-    res.render('login.ejs', { users: users })
+const bcrypt = require('bcrypt')
+const passport = require('passport')
+const express = require('express')
+const router = express.Router()
+
+const User = require('../models/user.js')
+const {isAuthenticated} = require('../config/credential')
+
+router.get('/login',(req, res) => {
+    res.render('login.ejs')
 })
 
-app.post('/login',passport.authenticate('local', {
-    successRedirect: '/',
+router.post('/login',passport.authenticate('local', {
+    successRedirect: '/test',
     failureRedirect: '/login',
     failureFlash: true
 }))
 
-app.get('/register', (req, res) => {
+router.get('/register', (req, res) => {
     res.render('register.ejs')
 })
 
-app.post('/register', async (req, res) =>{
+router.get('/test', (req, res) => {
+    res.render('test.ejs', { name: req.user.name })
+})
+
+router.post('/register', async (req, res) =>{
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     let user = new User({
         name: req.body.name,
@@ -28,3 +39,5 @@ app.post('/register', async (req, res) =>{
     }
     console.log(user)
 })
+
+module.exports = router;
