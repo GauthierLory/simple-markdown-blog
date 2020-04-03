@@ -1,0 +1,10 @@
+<%- include ('../partials/head') %>
+
+<%- include ('../partials/header') %>
+
+       <h1 class="mb-4"><%= category.title %></h1>
+       <div class="text-muted mb-2"><%= category.createdAt.toLocaleDateString() %></div>
+       <a href="/categories" class="btn btn-secondary">All categories</a>
+       <a href="/categories/edit/<%= category.id %>" class="btn btn-info">Edit</a>
+
+<%- include ('../partials/footer') %>

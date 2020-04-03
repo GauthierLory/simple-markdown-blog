@@ -1,0 +1,24 @@
+<%- include ('../partials/head') %>
+
+<%- include ('../partials/header') %>
+
+        <h1 class="mb-4">Blog categorie</h1>
+        <a href="/categories/new" class="btn btn-success">New categorie</a>
+
+        <% categories.forEach(categorie => { %>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title"><%= categorie.title %></h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        <%= categorie.createdAt.toLocaleDateString() %>
+                    </div>
+                    <a href="/categories/<%= categorie.title %>" class="btn btn-primary">Read more</a>
+                    <a href="/categories/edit/<%= categorie.id %>" class="btn btn-info">Edit</a>
+                    <form class="d-inline" action="/categories/<%= categorie.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% })%>
+
+<%- include ('../partials/footer') %>

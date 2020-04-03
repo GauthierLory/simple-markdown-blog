@@ -1,0 +1,12 @@
+<%- include ('../partials/head') %>
+
+<%- include ('../partials/header') %>
+
+        <h1 class="mb-4">Edit categorie</h1>
+
+        <form action="/categories/<%= category.id %>?_method=PUT" method="POST">
+            <%- include('_form_fields') %>
+        </form>
+
+<%- include ('../partials/footer') %>
+        
