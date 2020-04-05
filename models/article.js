@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose'),Schema = mongoose.Schema;
 const marked =require('marked')
 const slugify = require('slugify')
 const createDomPurify = require('dompurify')
@@ -29,6 +29,11 @@ const articleSchema = new mongoose.Schema({
     sanitizedHtml: {
         type: String,
         required: true
+    },
+    category: { 
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Category'
     }
 })
 
