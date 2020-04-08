@@ -10,6 +10,7 @@ const categoryRouter = require('./routes/category.js')
 const authRouter = require('./routes/auth.js')
 const methodOverride = require('method-override')
 const flash = require('express-flash')
+const expressLayouts = require('express-ejs-layouts')
 const passport = require('passport')
 const session = require('express-session')
 const app = express()
@@ -24,6 +25,11 @@ mongoose.connect('mongodb://localhost:27017/blog', {
 })
 
 app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
+app.set('layout', 'layouts/layout')
+app.use(expressLayouts)
+app.use(express.static('public'))
+
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 app.use(flash())
@@ -39,12 +45,9 @@ app.use(passport.session())
 
 
 app.get('/',async (req, res) => {
-    const articles = await Article.find().sort({
-        createdAt: 'desc'
-    })
+    const articles = await Article.find().populate('category').exec()
     res.render('articles/index', {
-         articles : articles,
-         //user: req.user.name,
+         articles : articles
         })
 })
 

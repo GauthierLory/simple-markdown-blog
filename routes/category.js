@@ -19,12 +19,6 @@ router.get('/edit/:id',isAuthenticated, async(req, res) => {
     res.render('category/edit', { category: category })
 })
 
-router.get('/:title',isAuthenticated ,async (req, res) => {
-    const category = await Category.findOne( { title: req.params.title })
-    if (category == null) res.redirect('/')
-    res.render('category/show', { category: category })
-})
-
 router.post('/',isAuthenticated, async(req, res, next) => {
     req.category = new Category()
     next()
@@ -46,10 +40,10 @@ function saveArticleAndRedirect(path){
         category.title = req.body.title
         try{
             category = await category.save()
-            res.redirect(`/categories/${category.title}`)
+            res.redirect('/categories')
         }catch (e){
             console.log(e)
-            res.render('category/#{path}', { category: category })
+            res.render('categories')
         }
     }
 }

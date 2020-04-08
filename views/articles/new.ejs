@@ -1,13 +1,6 @@
-
-<%- include ('../partials/head') %>
-
-<%- include ('../partials/header') %>
+<h1 class="text-4xl font-bold text-center">New article</h1>
 
 
-        <h1 class="mb-4">New article</h1>
-
-        <form action="/articles" method="POST">
-            <%- include('_form_fields') %>
-        </form>
-
-<%- include ('../partials/footer') %>
+<form action="/articles" method="POST">
+    <%- include('_form_fields') %>
+</form>

@@ -11,7 +11,7 @@ router.get('/login',isNotAuthenticated ,(req, res) => {
 })
 
 router.post('/login',isNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/test',
+    successRedirect: '/user',
     failureRedirect: '/login',
     failureFlash: true
 }))
@@ -20,8 +20,8 @@ router.get('/register',isNotAuthenticated ,(req, res) => {
     res.render('auth/register.ejs')
 })
 
-router.get('/test',isAuthenticated, (req, res) => {
-    res.render('test.ejs', { name: req.user.name })
+router.get('/user',isAuthenticated, (req, res) => {
+    res.render('user.ejs', { name: req.user.name })
 })
 
 router.delete('/logout',(req, res) => {

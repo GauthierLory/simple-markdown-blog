@@ -1,25 +1,20 @@
-<%- include ('../partials/head') %>
 
-<%- include ('../partials/header') %>
 
-        <h1 class="mb-4">Blog articles</h1>
-        <a href="/articles/new" class="btn btn-success">New articles</a>
 
+<h1 class="text-4xl text-center">Blog articles</h1>
+
+
+      <div class="container  mx-auto py-4 px-6">
         <% articles.forEach(article => { %>
-            <div class="card mt-4">
-                <div class="card-body">
-                    <h4 class="card-title"><%= article.title %></h4>
-                    <div class="card-subtitle text-muted mb-2">
-                        <%= article.createdAt.toLocaleDateString() %>
-                    </div>
-                    <div class="card-text mb-2"><%= article.description %></div>
-                    <a href="/articles/<%= article.slug %>" class="btn btn-primary">Read more</a>
-                    <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
-                    <form class="d-inline" action="/articles/<%= article.id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </div>
+          <div class="max-w-screen-lg mx-auto px-6 py-4 bg-white shadow-lg rounded-lg my-20">
+            <div>
+              <h2 class="text-gray-800 text-3xl font-semibold"><%= article.title %></h2> <%= article.createdAt.toLocaleDateString() %>
+              <p class="mt-2 text-gray-600">#<%= article.category.title %></p>
+              <p class="mt-2 text-black-600"><%= article.description %></p>
             </div>
+            <div class="flex justify-end mt-4">
+              <a href="/articles/<%= article.slug %>" class="text-xl font-medium text-indigo-500">Read more</a>
+            </div>
+          </div>
         <% })%>
-
-<%- include ('../partials/footer') %>
+      </div>

@@ -1,13 +1,8 @@
 
-<%- include ('../partials/head') %>
 
-<%- include ('../partials/header') %>
-
-        <h1 class="mb-4">Edit article</h1>
+        <h1 class="text-4xl font-bold text-center">Edit article</h1>
 
         <form action="/articles/<%= article.id %>?_method=PUT" method="POST">
             <%- include('_form_fields') %>
         </form>
-
-<%- include ('../partials/footer') %>
         

@@ -1,15 +1,15 @@
-<%- include ('../partials/head') %>
+<h1 class="text-4xl text-center"><%= article.title %></h1>
 
-<%- include ('../partials/header') %>
 
-       <h1 class="mb-4"><%= article.title %></h1>
-       <h2>#<%= article.category.title %></h2>
-       <div class="text-muted mb-2"><%= article.createdAt.toLocaleDateString() %></div>
-       <a href="/" class="btn btn-secondary">All articles</a>
-       <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
-
-       <div>
-        <%- article.sanitizedHtml %>
-       </div>
-
-<%- include ('../partials/footer') %>
+      <div class="container  mx-auto py-4 px-6">
+          <div class="max-w-screen-lg mx-auto px-6 py-4 bg-white shadow-lg rounded-lg my-20">
+            <div>
+              <%= article.createdAt.toLocaleDateString() %>
+              <p class="mt-2 text-gray-600">#<%= article.category.title %></p>
+              <p class="mt-2 text-black-600"><%= article.description %></p>
+            </div>
+            <div class="flex justify-end mt-4">
+                <%= article.sanitizeHtml %>
+            </div>
+          </div>
+      </div>
