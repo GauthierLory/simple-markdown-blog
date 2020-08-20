@@ -21,7 +21,7 @@
   "homepage": "https://github.com/GauthierLory/simple-markdown-blog#readme",
   "dependencies": {
     "autoprefixer": "^9.7.6",
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "dompurify": "^2.0.8",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
