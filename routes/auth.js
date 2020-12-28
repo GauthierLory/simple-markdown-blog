@@ -11,17 +11,13 @@ router.get('/login',isNotAuthenticated ,(req, res) => {
 })
 
 router.post('/login',isNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/user',
+    successRedirect: '/user/info',
     failureRedirect: '/login',
     failureFlash: true
 }))
 
 router.get('/register',isNotAuthenticated ,(req, res) => {
     res.render('auth/register.ejs')
-})
-
-router.get('/user',isAuthenticated, (req, res) => {
-    res.render('user.ejs', { name: req.user.name })
 })
 
 router.delete('/logout',(req, res) => {

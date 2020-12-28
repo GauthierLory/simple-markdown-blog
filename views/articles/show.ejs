@@ -6,6 +6,12 @@
             <div>
               <%= article.createdAt.toLocaleDateString() %>
               <p class="mt-2 text-gray-600">#<%= article.category.title %></p>
+              <p>
+                <a href="/articles/edit/<%= article.id %>" class="text-xl font-medium text-indigo-500">Read more</a>
+                <form class="d-inline" action="/articles/<%= article.id %>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+              </p>
               <p class="mt-2 text-black-600"><%= article.description %></p>
             </div>
             <div class="flex justify-end mt-4">

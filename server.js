@@ -8,6 +8,7 @@ const Article = require('./models/article.js')
 const articleRouter = require('./routes/article.js')
 const categoryRouter = require('./routes/category.js')
 const authRouter = require('./routes/auth.js')
+const userRouter = require('./routes/user.js')
 const methodOverride = require('method-override')
 const flash = require('express-flash')
 const expressLayouts = require('express-ejs-layouts')
@@ -53,6 +54,7 @@ app.get('/',async (req, res) => {
 
 app.use('/articles', articleRouter)
 app.use('/categories', categoryRouter)
+app.use('/user', userRouter);
 app.use('/', authRouter);
 
 app.listen(5000)
