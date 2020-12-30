@@ -20,26 +20,26 @@
   },
   "homepage": "https://github.com/GauthierLory/simple-markdown-blog#readme",
   "dependencies": {
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^9.8.6",
     "bcrypt": "^5.0.0",
-    "dompurify": "^2.0.8",
+    "dompurify": "^2.2.6",
     "dotenv": "^8.2.0",
-    "ejs": "^3.0.1",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "express-flash": "0.0.2",
-    "express-session": "^1.17.0",
-    "jsdom": "^16.2.1",
+    "express-session": "^1.17.1",
+    "jsdom": "^16.4.0",
     "marked": "^0.8.2",
     "method-override": "^3.0.0",
-    "mongoose": "^5.9.6",
+    "mongoose": "^5.11.9",
     "parcel-bundler": "^1.12.4",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "slugify": "^1.4.0",
-    "tailwindcss": "^1.2.0"
+    "slugify": "^1.4.6",
+    "tailwindcss": "^1.9.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.6"
   }
 }
