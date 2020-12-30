@@ -1,0 +1,29 @@
+<% if (messages.error) { %>
+    <%= messages.error %>
+<% } %>
+
+
+
+
+
+
+<table class="">
+    <th>
+        <tr>
+            <td>Nom</td>
+            <td>E-mail</td>
+            <td span="2">Actions</td>
+        </tr>
+    </th>
+    <tbody>
+        <% users.forEach(user => { %>
+        <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td>Modifier</td>
+            <td>Supprimer</td>
+        </tr>
+        <% })%>
+    </tbody>
+
+</table>
