@@ -4,10 +4,12 @@ const router = express.Router()
 const User = require('../models/user.js')
 const {isAuthenticated, isNotAuthenticated} = require('../config/credential')
 
-router.get('/info',isAuthenticated, async(req, res) => {
+router.get('/index',isAuthenticated, async(req, res) => {
     const users = await User.find()
+    const test = User.countDocuments()
         res.render('user/index.ejs', { 
         users: users,
+        test: test
      })
 })
 

@@ -3,7 +3,7 @@ const Category = require('../models/category')
 const router = express.Router()
 const {isAuthenticated} = require('../config/credential')
 
-router.get('/',isAuthenticated ,async (req, res) => {
+router.get('/index',isAuthenticated ,async (req, res) => {
     const categories = await Category.find().sort({
         createdAt: 'desc'
     })

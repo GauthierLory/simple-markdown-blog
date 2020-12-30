@@ -4,6 +4,12 @@ const Category = require('./../models/category')
 const router = express.Router()
 const {isAuthenticated} = require('../config/credential')
 
+
+router.get('/index',isAuthenticated,async (req, res) => {
+    const articles = await Article.find().populate('category').exec()
+    res.render('articles/_list', { articles : articles })
+})
+
 router.get('/new',isAuthenticated,async(req, res) => {
     const categories = await Category.find({})
     res.render('articles/new', { article: new Article, categories: categories})
