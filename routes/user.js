@@ -12,3 +12,9 @@ router.get('/info',isAuthenticated, async(req, res) => {
     res.render('user/index.ejs', { users: users })
 })
 module.exports = router;
+
+
+router.delete('/:id', isAuthenticated, async(req, res) => {
+    await User.findByIdAndDelete(req.params.id)
+    res.redirect('/user/info')
+})
